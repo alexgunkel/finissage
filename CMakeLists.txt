@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
@@ -34,6 +34,14 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    venue.cpp
+    venue.h
+    venuemodel.cpp
+    venuemodel.h
+    venuewidget.cpp
+    venuewidget.h
+    addvenuedialog.cpp
+    addvenuedialog.h
     ${TS_FILES}
   )
 else()
@@ -42,6 +50,14 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    venue.cpp
+    venue.h
+    venuemodel.cpp
+    venuemodel.h
+    venuewidget.cpp
+    venuewidget.h
+    addvenuedialog.cpp
+    addvenuedialog.h
     ${TS_FILES}
   )
 endif()

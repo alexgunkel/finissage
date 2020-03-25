@@ -1,16 +1,18 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "addvenuedialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , vWidget(new VenueWidget)
 {
     ui->setupUi(this);
     setWindowTitle(tr("Finissage"));
 
     auto fileMenu = menuBar()->addMenu(tr("File"));
 
-    fileMenu->addAction(tr("New"));
+    connect(fileMenu->addAction(tr("New Venue")), &QAction::triggered, vWidget, &VenueWidget::addVenueDialog);
 
     fileMenu->addSeparator();
 
@@ -27,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     auto helpMenu = menuBar()->addMenu(tr("Help"));
     helpMenu->addAction(tr("About"));
+
+    setCentralWidget(vWidget);
 }
 
 MainWindow::~MainWindow()
